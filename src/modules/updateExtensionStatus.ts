@@ -7,9 +7,11 @@ export const updateExtensionStatus = (tab: chrome.tabs.Tab): void => {
 
   if (isAllowListed) {
     chrome.action.enable(tab.id);
-    chrome.action.setIcon({ tabId: tab.id, path: 'icon-enabled.png' });
+    chrome.action.setIcon({ tabId: tab.id, path: 'icon-34.png' });
+    console.log('BWN::updateExtensionStatus::enabled');
   } else {
     chrome.action.disable(tab.id);
-    chrome.action.setIcon({ tabId: tab.id, path: 'icon-disabled.png' });
+    chrome.action.setIcon({ tabId: tab.id, path: 'icon-disabled-34.png' });
+    console.log('BWN::updateExtensionStatus::disabled');
   }
 };
