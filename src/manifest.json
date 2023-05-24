@@ -1,13 +1,16 @@
 {
   "manifest_version": 3,
-  "name": "Raptive Confluence Evergreen Chrome Extension",
-  "description": "A Chrome extension for checking 'freshness' of Raptive Confluence pages",
+  "name": "Raptive Evergreen Docs Chrome Extension",
+  "description": "A Chrome extension for checking 'freshness' of Raptive docs",
   "background": { "service_worker": "background.bundle.js" },
   "action": {
     "default_popup": "popup.html",
     "default_icon": "icon-34.png"
   },
   "icons": {
+    "16": "icon-16.png",
+    "32": "icon-32.png",
+    "48": "icon-48.png",
     "128": "icon-128.png"
   },
   "content_scripts": [
@@ -19,7 +22,12 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["content.styles.css", "icon-128.png", "icon-34.png"],
+      "resources": [
+        "content.styles.css",
+        "icon-128.png",
+        "icon-34.png",
+        "icon-disabled-34.png"
+      ],
       "matches": []
     }
   ],

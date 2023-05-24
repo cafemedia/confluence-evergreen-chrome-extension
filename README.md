@@ -1,6 +1,6 @@
 <img src="src/assets/img/icon-128.png" width="64"/>
 
-# Raptive Confluence Evergreen Chrome Extension
+# Raptive Evergreen Docs Chrome Extension
 
 ## Description
 

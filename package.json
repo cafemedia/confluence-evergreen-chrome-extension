@@ -1,8 +1,9 @@
 {
-  "name": "confluence-evergreen-chrome-extension",
+  "name": "evergreen-docs-chrome-extension",
   "version": "1.0.0",
-  "description": "A chrome extension for checking 'freshness' of Raptive Confluence pages",
+  "description": "A Chrome extension for checking 'freshness' of Raptive docs",
   "license": "NONE",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/cafemedia/confluence-evergreen-chrome-extension.git"
