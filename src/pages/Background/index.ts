@@ -1,4 +1,4 @@
-console.log('This is the background page.');
+import { updateExtensionStatus } from '../../modules/updateExtensionStatus';
 
 chrome.runtime.onInstalled.addListener(() => {
   // This clears all rules, then adds a new one
@@ -8,7 +8,11 @@ chrome.runtime.onInstalled.addListener(() => {
         conditions: [
           // For each URL you want the extension enabled on, add a new PageStateMatcher
           new chrome.declarativeContent.PageStateMatcher({
-            pageUrl: { hostEquals: 'cafemedia.atlassian.net' },
+            pageUrl: {
+              hostEquals: 'cafemedia.atlassian.net',
+              schemes: ['https'],
+            },
+            css: ['h1[data-testid="title-text"]'],
           }),
           // Add as many matchers as needed
         ],
@@ -16,5 +20,17 @@ chrome.runtime.onInstalled.addListener(() => {
         actions: [new chrome.declarativeContent.ShowAction()],
       },
     ]);
+  });
+});
+
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  if (changeInfo.url) {
+    updateExtensionStatus(tab);
+  }
+});
+
+chrome.tabs.onActivated.addListener((activeInfo) => {
+  chrome.tabs.get(activeInfo.tabId, (tab) => {
+    updateExtensionStatus(tab);
   });
 });

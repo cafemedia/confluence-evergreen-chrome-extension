@@ -1,6 +1,3 @@
-import { printLine } from './modules/print';
-
-console.log('Content script works!');
-console.log('Must reload extension for modifications to take effect.');
-
-printLine("Using the 'printLine' function from the Print Module");
+const htmlToInject =
+  '<div style="position: fixed; top: 0; left: 0; width: 100%; height: 100px; background-color: red; text-align: center; line-height: 100px; z-index: 10000;">Injected HTML</div>';
+document.body.insertAdjacentHTML('afterbegin', htmlToInject);
